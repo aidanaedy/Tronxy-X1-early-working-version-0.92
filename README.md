@@ -1,4 +1,4 @@
-# Tronxy-X1-early-working-version-0.92 
+# Tronxy X1 earl working version 0.92 
 
 This is based on Marlin Tronxy X1 version 0.92 firmware file that I have been editing - trying to get Hot Bed to work but I think my thermistor tables are wrong. As a result, I am trying to also fork pessimism's Marlin version 2 firmware version, but so far I cannot get it to compile as it says that the configuration.h file "#error "You are using an old Configuration.h file, update it before building Marlin."" (but that is another version). 
 
