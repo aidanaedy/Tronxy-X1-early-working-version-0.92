@@ -172,7 +172,7 @@
 
 #define HEATED_BED_MAX_TEMP 140
 #define SKIP_M190_IF_WITHIN 3
-#define HEATED_BED_SENSOR_TYPE 4 //0 - 4 38 deg - got upto 21 before giving up
+#define HEATED_BED_SENSOR_TYPE 4 //0 - 4 38 deg - got upto 21 
 #define HEATED_BED_SENSOR_PIN TEMP_1_PIN
 #define HEATED_BED_HEATER_PIN HEATER_1_PIN
 #define HEATED_BED_SET_INTERVAL 5000
