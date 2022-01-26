@@ -81,8 +81,7 @@
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
 #define EXT0_STEPS_PER_MM 107
-#define EXT0_TEMPSENSOR_TYPE 5 //5 but 2 worked quite well and 9 very well, 10 a bit low but quite consistent
-
+#define EXT0_TEMPSENSOR_TYPE 5   //5
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
 #define EXT0_STEP_PIN ORIG_E0_STEP_PIN
@@ -100,11 +99,11 @@
 #define EXT0_MAX_ACCELERATION 5000
 #define EXT0_HEAT_MANAGER 3 //3
 #define EXT0_WATCHPERIOD 1  //1
-#define EXT0_PID_INTEGRAL_DRIVE_MAX 230 //250
+#define EXT0_PID_INTEGRAL_DRIVE_MAX 230 //230
 #define EXT0_PID_INTEGRAL_DRIVE_MIN 50
-#define EXT0_PID_PGAIN_OR_DEAD_TIME 9.86  //12
-#define EXT0_PID_I 0.28  //0.82
-#define EXT0_PID_D 87.15   //48
+#define EXT0_PID_PGAIN_OR_DEAD_TIME 7.0000  //12
+#define EXT0_PID_I 2.0  //0.82
+#define EXT0_PID_D 40.00   //48
 #define EXT0_PID_MAX 255
 #define EXT0_ADVANCE_K 0
 #define EXT0_ADVANCE_L 0
@@ -148,7 +147,7 @@
 #define TEMP_HYSTERESIS 0
 #define EXTRUDE_MAXLENGTH 160
 #define NUM_TEMPS_USERTHERMISTOR0 58
-#define USER_THERMISTORTABLE0 {    \
+#define USER_THERMISTORTABLE0 {		\
 {  56,300*8},{  59,295*8},{  64,290*8},{  70,285*8},{  76,280*8},{  82,275*8},{  89,270*8},{  98,265*8},\
 { 108,260*8},{ 118,255*8},{ 128,250*8},{ 145,245*8},{ 156,240*8},{ 168,235*8},{ 187,230*8},{ 208,225*8},\
 { 227,220*8},{ 248,215*8},{ 272,210*8},{ 301,205*8},{ 336,200*8},{ 370,195*8},{ 400,190*8},{ 450,185*8},\
@@ -157,8 +156,8 @@
 {2200,100*8},{2350, 95*8},{2516, 90*8},{2671, 85*8},{2831, 80*8},{2975, 75*8},{3115, 70*8},{3251, 65*8},\
 {3375, 60*8},{3480, 55*8},{3580, 50*8},{3660, 45*8},{3740, 40*8},{3869, 30*8},{3912, 25*8},{3948, 20*8},\
 {4077,-20*8},{4094,-55*8}}
-//#define NUM_TEMPS_USERTHERMISTOR1 0
-//#define USER_THERMISTORTABLE1 {}
+#define NUM_TEMPS_USERTHERMISTOR1 0
+#define USER_THERMISTORTABLE1 {}
 #define NUM_TEMPS_USERTHERMISTOR2 0
 #define USER_THERMISTORTABLE2 {}
 #define GENERIC_THERM_VREF 5
@@ -166,18 +165,17 @@
 #define HEATER_PWM_SPEED 0
 
 // ############# Heated bed configuration ########################
-// EXT0_HEATER_PIN HEATER_0_PIN
 
-#define HAVE_HEATED_BED 0  //0 _________________HEAT BED ON/OFF__________________
+#define HAVE_HEATED_BED 0
 
-#define HEATED_BED_MAX_TEMP 140
+#define HEATED_BED_MAX_TEMP 260
 #define SKIP_M190_IF_WITHIN 3
-#define HEATED_BED_SENSOR_TYPE 4 //0 - 4 38 deg - got upto 21 
+#define HEATED_BED_SENSOR_TYPE 0
 #define HEATED_BED_SENSOR_PIN TEMP_1_PIN
 #define HEATED_BED_HEATER_PIN HEATER_1_PIN
 #define HEATED_BED_SET_INTERVAL 5000
 
-#define HEATED_BED_HEAT_MANAGER 3   //0
+#define HEATED_BED_HEAT_MANAGER 0
 #define HEATED_BED_PID_INTEGRAL_DRIVE_MAX 255
 #define HEATED_BED_PID_INTEGRAL_DRIVE_MIN 80
 #define HEATED_BED_PID_PGAIN_OR_DEAD_TIME   196
@@ -186,31 +184,9 @@
 #define HEATED_BED_PID_MAX 255
 #define HEATED_BED_DECOUPLE_TEST_PERIOD 90000
 #define MIN_EXTRUDER_TEMP 180
-#define MAXTEMP 240
-#define MIN_DEFECT_TEMPERATURE 5  //  -10
+#define MAXTEMP 275
+#define MIN_DEFECT_TEMPERATURE -10
 #define MAX_DEFECT_TEMPERATURE 260
-#define NUM_TEMPS_USERTHERMISTOR1 67  //58 - although this whole section is copied from STD thermistor hot end section
-#define USER_THERMISTORTABLE1 {    \
-{  56,300*8},{  59,295*8},{  64,290*8},{  70,285*8},{  76,280*8},{  82,275*8},{  89,270*8},{  98,265*8},\
-{ 108,260*8},{ 118,255*8},{ 128,250*8},{ 145,245*8},{ 156,240*8},{ 168,235*8},{ 187,230*8},{ 208,225*8},\
-{ 227,220*8},{ 248,215*8},{ 272,210*8},{ 301,205*8},{ 336,200*8},{ 370,195*8},{ 400,190*8},{ 450,185*8},\
-{ 492,180*8},{ 552,175*8},{ 615,170*8},{ 690,165*8},{ 750,160*8},{ 830,155*8},{ 920,150*8},{1010,145*8},\
-{1118,140*8},{1215,135*8},{1330,130*8},{1460,125*8},{1594,120*8},{1752,115*8},{1900,110*8},{2040,105*8},\
-{2200,100*8},{2350, 95*8},{2516, 90*8},{2671, 85*8},{2831, 80*8},{2975, 75*8},{3115, 70*8},{3251, 65*8},\
-{3375, 60*8},{3480, 55*8},{3580, 50*8},{3660, 45*8},{3740, 40*8},{3869, 30*8},{3912, 25*8},{3948, 20*8},\
-{4077,-20*8},{4094,-55*8}}
-
-#define NUM_TEMPS_USERTHERMISTOR2 68
-#define USER_THERMISTORTABLE2 {\
-{1*4,938*8},{11*4,423*8},{21*4,351*8},{31*4,314*8},{41*4,290*8},{51*4,272*8},{61*4,258*8},{71*4,247*8},\
-{81*4,237*8},{91*4,229*8},{101*4,221*8},{111*4,215*8},{121*4,209*8},{131*4,204*8},{141*4,199*8},{151*4,195*8},\
-{161*4,190*8},{171*4,187*8},{181*4,183*8},{191*4,179*8},{201*4,176*8},{211*4,173*8},{221*4,170*8},{231*4,167*8},\
-{241*4,165*8},{251*4,162*8},{261*4,160*8},{271*4,157*8},{281*4,155*8},{291*4,153*8},{301*4,150*8},{311*4,148*8},\
-{321*4,146*8},{331*4,144*8},{341*4,142*8},{351*4,140*8},{361*4,139*8},{371*4,137*8},{381*4,135*8},{391*4,133*8},\
-{401*4,131*8},{411*4,130*8},{421*4,128*8},{431*4,126*8},{441*4,125*8},{451*4,123*8},{461*4,122*8},{471*4,120*8},\
-{481*4,119*8},{491*4,117*8},{501*4,116*8},{511*4,114*8},{521*4,113*8},{531*4,111*8},{541*4,110*8},{551*4,108*8},\
-{561*4,107*8},{571*4,105*8},{581*4,104*8},{591*4,102*8},{601*4,101*8},{611*4,100*8},{621*4,98*8},{631*4,97*8},\
-{641*4,95*8},{651*4,94*8},{661*4,92*8},{671*4,91*8} }
 
 // ##########################################################################################
 // ##                             Laser configuration                                      ##
@@ -315,9 +291,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-#define X_MAX_LENGTH 200   // 150
-#define Y_MAX_LENGTH 200   // 150
-#define Z_MAX_LENGTH 160   // 150
+#define X_MAX_LENGTH 150
+#define Y_MAX_LENGTH 150
+#define Z_MAX_LENGTH 150
 #define X_MIN_POS 0
 #define Y_MIN_POS -10
 #define Z_MIN_POS 0
@@ -411,7 +387,7 @@ It also can add a delay to wait for spindle to run on full speed.
 
 // ################# Misc. settings ##################
 
-#define BAUDRATE 57600
+#define BAUDRATE 115200
 #define ENABLE_POWER_ON_STARTUP 1
 #define POWER_INVERTING 0
 #define KILL_METHOD 1
